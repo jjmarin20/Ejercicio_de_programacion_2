@@ -6,11 +6,13 @@ public class Move : MonoBehaviour
 {
 
     public float movSpeed = 5F;
+    private Animator anim;
+    public float x, y;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,8 @@ public class Move : MonoBehaviour
         {
             transform.Translate(transform.up * movSpeed * Time.deltaTime);
         }
+        anim.SetFloat("Velx", x);
+        anim.SetFloat("Vely", y);
     }
 
 }
